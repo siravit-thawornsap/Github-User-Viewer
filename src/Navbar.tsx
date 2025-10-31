@@ -26,7 +26,7 @@ function Navbar() {
 
                     {/* 1. โลโก้ */}
                     <a href="#" className="text-xl font-bold">
-                        MyBrand
+                        Gihub User Viewer
                     </a>
 
                     {/* 2. เมนู (Desktop) */}
