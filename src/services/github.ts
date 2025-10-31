@@ -23,11 +23,25 @@ export interface GitHubRepo {
   created_at: string
   open_issues_count: string
   full_name: string
-  owner : {
-    avatar_url: string,
+  owner: {
+    avatar_url: string
+    login: string  // เพิ่ม login ใน owner
   }
   forks_count: number
-  login: string
+  // เพิ่มฟิลด์ที่ใช้ใน modal
+  watchers_count?: number
+  topics?: string[]
+  size?: number
+  default_branch?: string
+  license?: {
+    name: string
+    spdx_id: string
+  } | null
+  homepage?: string | null
+  has_wiki?: boolean
+  has_projects?: boolean
+  has_pages?: boolean
+  archived?: boolean
 }
 
 export const BASE = "https://api.github.com"

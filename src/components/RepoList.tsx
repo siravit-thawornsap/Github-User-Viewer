@@ -67,17 +67,74 @@ export default function RepoList({ repos }: Props) {
                   <a href={selectedRepo.html_url} target="_blank" className="text-xl font-semibold hover:underline">
                     {selectedRepo.name}
                   </a>
-                  <p className="text-gray-400">@{selectedRepo.login}</p>
+                  <p className="text-gray-400">@{selectedRepo.owner.login}</p>
                 </div>
               </div>
 
               <p className="mt-4 text-gray-300">{selectedRepo.description || "No description provided."}</p>
 
               <div className="flex flex-wrap gap-3 mt-4 text-sm">
-                <span className="bg-gray-600 px-2 py-1 rounded-xl">⭐ {selectedRepo.stargazers_count}</span>
-                <span className="bg-gray-600 px-2 py-1 rounded-xl">🍴 {selectedRepo.forks_count}</span>
-                <span className="bg-gray-600 px-2 py-1 rounded-xl">💬 {selectedRepo.open_issues_count}</span>
+                <span className="bg-gray-600 px-2 py-1 rounded-xl">Star : {selectedRepo.stargazers_count}</span>
+                <span className="bg-gray-600 px-2 py-1 rounded-xl">Fork : {selectedRepo.forks_count}</span>
+                <span className="bg-gray-600 px-2 py-1 rounded-xl">Issue : {selectedRepo.open_issues_count}</span>
                 {selectedRepo.language && <span className="bg-gray-600 px-2 py-1 rounded-xl">{selectedRepo.language}</span>}
+              </div>
+
+              {/* Topics */}
+              {selectedRepo.topics && selectedRepo.topics.length > 0 && (
+                <div className="mt-3">
+                  <p className="text-gray-400 text-xs mb-1">Topics:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedRepo.topics.map((topic: string) => (
+                      <span key={topic} className="bg-blue-600/30 text-blue-300 px-2 py-0.5 rounded text-xs">
+                        {topic}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Additional Info */}
+              <div className="grid grid-cols-2 gap-2 mt-4 text-xs">
+                <div>
+                  <p className="text-gray-500">Created</p>
+                  <p className="text-gray-300">{new Date(selectedRepo.created_at).toLocaleDateString()}</p>
+                </div>
+                <div>
+                  <p className="text-gray-500">Updated</p>
+                  <p className="text-gray-300">{new Date(selectedRepo.updated_at).toLocaleDateString()}</p>
+                </div>
+                <div>
+                  <p className="text-gray-500">Size</p>
+                  <p className="text-gray-300">{(selectedRepo.size ? selectedRepo.size / 1024 : 0).toFixed(2)} MB</p>
+                </div>
+                <div>
+                  <p className="text-gray-500">Default Branch</p>
+                  <p className="text-gray-300">{selectedRepo.default_branch}</p>
+                </div>
+                {selectedRepo.license && (
+                  <div>
+                    <p className="text-gray-500">License</p>
+                    <p className="text-gray-300">{selectedRepo.license.name}</p>
+                  </div>
+                )}
+                {selectedRepo.homepage && (
+                  <div className="col-span-2">
+                    <p className="text-gray-500">Homepage</p>
+                    <a href={selectedRepo.homepage} target="_blank" rel="noreferrer" className="text-blue-400 hover:underline break-all">
+                      {selectedRepo.homepage}
+                    </a>
+                  </div>
+                )}
+              </div>
+
+              {/* Features */}
+              <div className="flex flex-wrap gap-2 mt-3 text-xs">
+                {selectedRepo.has_wiki && <span className="bg-green-600/20 text-green-300 px-2 py-0.5 rounded">📖 Wiki</span>}
+                {selectedRepo.has_projects && <span className="bg-green-600/20 text-green-300 px-2 py-0.5 rounded">📊 Projects</span>}
+                {selectedRepo.has_pages && <span className="bg-green-600/20 text-green-300 px-2 py-0.5 rounded">📄 Pages</span>}
+                {selectedRepo.fork && <span className="bg-purple-600/20 text-purple-300 px-2 py-0.5 rounded">🔱 Forked</span>}
+                {selectedRepo.archived && <span className="bg-red-600/20 text-red-300 px-2 py-0.5 rounded">📦 Archived</span>}
               </div>
 
               <p className="text-gray-400 mt-3 text-xs">Created: {new Date(selectedRepo.created_at).toLocaleDateString()}</p>
