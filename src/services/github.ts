@@ -20,9 +20,18 @@ export interface GitHubRepo {
   updated_at: string
   fork: boolean
   visibility: string
+  created_at: string
+  open_issues_count: string
+  full_name: string
+  owner : {
+    avatar_url: string,
+  }
+  forks_count: number
+  login: string
 }
 
-const BASE = "https://api.github.com"
+export const BASE = "https://api.github.com"
+
 
 export async function fetchUser(username: string): Promise<GitHubUser> {
   const res = await fetch(`${BASE}/users/${encodeURIComponent(username)}`)

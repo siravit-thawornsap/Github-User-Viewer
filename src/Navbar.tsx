@@ -21,15 +21,10 @@ function Navbar() {
     return (
         <nav className="bg-gray-950 text-white shadow-md sticky top-0 z-50">
             <div className="container mx-auto px-4">
-                {/* ส่วนแสดงผลบน Desktop */}
                 <div className="flex justify-between items-center h-16">
-
-                    {/* 1. โลโก้ */}
                     <a href="#" className="text-xl font-bold">
                         Gihub User Viewer
                     </a>
-
-                    {/* 2. เมนู (Desktop) */}
                     <div className="hidden md:flex space-x-4">
                         {links.map((link) => (
                             <a
@@ -41,15 +36,12 @@ function Navbar() {
                             </a>
                         ))}
                     </div>
-
-                    {/* 3. ปุ่มเมนู (Mobile) */}
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="p-2 rounded-md text-gray-400 hover:text-white focus:outline-none"
                             aria-label="Toggle menu"
                         >
-                            {/* ไอคอน 3 ขีด แบบง่าย */}
                             <div className="space-y-1.5">
                                 <span className="block w-6 h-0.5 bg-current"></span>
                                 <span className="block w-6 h-0.5 bg-current"></span>
@@ -59,11 +51,8 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-
-            {/* ส่วนเมนูที่แสดงบน Mobile (สลับซ่อน/แสดง) */}
             <div
                 id="mobile-menu"
-                // ใช้ 'block' (แสดง) หรือ 'hidden' (ซ่อน) ตามค่า state
                 className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}
             >
                 <div className="px-2 pt-2 pb-3 space-y-1">
