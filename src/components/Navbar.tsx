@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // (Optional) กำหนด Type สำหรับ Link
 interface NavLink {
@@ -7,19 +8,19 @@ interface NavLink {
 }
 
 function Navbar() {
-    // State สำหรับเช็คว่าเมนูมือถือเปิดอยู่หรือไม่
+    // Check if the menu is open
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    // รายการเมนู
+    // Links Menu
     const links: NavLink[] = [
-        { name: 'Home', href: '#' },
-        { name: 'About', href: '#' },
-        { name: 'Projects', href: '#' },
-        { name: 'Contact', href: '#' },
+        { name: 'Home', href: '/' },
+        { name: 'About', href: '/about' },
     ];
 
     return (
         <nav className="bg-gray-950 text-white shadow-md sticky top-0 z-50">
+
+            {/* Desktop Menu */}
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center h-16">
                     <a href="#" className="text-xl font-bold">
@@ -27,16 +28,16 @@ function Navbar() {
                     </a>
                     <div className="hidden md:flex space-x-4">
                         {links.map((link) => (
-                            <a
+                            <Link
                                 key={link.name}
-                                href={link.href}
+                                to={link.href}
                                 className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                             >
                                 {link.name}
-                            </a>
+                            </Link>
                         ))}
                     </div>
-                    <div className="md:hidden">
+                    <div className='md:hidden'>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="p-2 rounded-md text-gray-400 hover:text-white focus:outline-none"
@@ -51,19 +52,17 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-            <div
-                id="mobile-menu"
-                className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}
-            >
+
+            {/* Mobile Menu */}
+            <div id="mobile-menu" className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
                 <div className="px-2 pt-2 pb-3 space-y-1">
                     {links.map((link) => (
-                        <a
+                        <Link
                             key={link.name}
-                            href={link.href}
+                            to={link.href}
                             className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                        >
-                            {link.name}
-                        </a>
+                        >{link.name}
+                        </Link>
                     ))}
                 </div>
             </div>
