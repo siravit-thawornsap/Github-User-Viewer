@@ -11,8 +11,11 @@ export default function RepoList({ repos }: Props) {
 
   useEffect(() => {
     if (!ref.current) return;
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    openRepoId !== null ? !ref.current.open && ref.current.showModal() : ref.current.open && ref.current.close();
+    
+    if(openRepoId !== null && !ref.current.open) {
+        ref.current.showModal();
+    }
+    // ถ้า openRepoId ไม่มีอยู่จะทำให้ selectedRepo ไม่มีทำให้เกิดการ unmount เองไม่ต้องสั่งปิด
   }, [openRepoId]);
 
   const selectedRepo = repos.find(r => r.id === openRepoId);
