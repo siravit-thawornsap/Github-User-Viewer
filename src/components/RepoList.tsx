@@ -22,7 +22,7 @@ export default function RepoList({ repos }: Props) {
 
   return (
     <>
-      <ul className="grid gap-4 mb-8">
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         {repos.map((r) => (
           <li key={r.id} className="rounded-xl border-3 border-slate-800 bg-slate-900 p-4 hover:bg-slate-800/80 transition">
             <a href={r.html_url} target="_blank" rel="noreferrer" className="font-bold hover:underline">

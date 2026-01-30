@@ -12,6 +12,7 @@ export default function Home() {
   const [error, setError] = useState("")
 
   async function handleSearch(name: string) {
+    // trim name
     const trimmed = name.trim()
     if (!trimmed) {
       setError("Enter GitHub username")
@@ -19,12 +20,14 @@ export default function Home() {
       setRepos([])
       return
     }
-
+    
+    // clear state and start loading
     setError("")
     setLoading(true)
     setUser(null)
     setRepos([])
 
+    // try to fetch user data
     try {
       const [u, r] = await Promise.all([fetchUser(trimmed), fetchRepos(trimmed)])
       setUser(u)
@@ -34,12 +37,13 @@ export default function Home() {
         setError(err.message || "Error")
       }
     } finally {
+      // cancle loading
       setLoading(false)
     }
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-4 md:p-6">
+    <div className="max-w-6xl mx-auto p-4 md:p-6">
       <h1 className="text-2xl md:text-3xl font-bold mb-4">GitHub Profile Viewer</h1>
       <SearchBar onSearch={handleSearch} />
 
@@ -63,7 +67,7 @@ export default function Home() {
           {error}
         </div>
       )}
-
+      
       {user && <ProfileCard user={user} />}
       {user && repos.length > 0 && (
         <>
