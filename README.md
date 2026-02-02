@@ -2,6 +2,13 @@
 
 A simple example project to view GitHub user profiles (built with React + Vite).
 
+---
+
+### Live Demo
+[![GitHub Pages](https://img.shields.io/badge/View%20Demo-GitHub%20Pages-blue?style=for-the-badge&logo=github)](https://siravit-thawornsap.github.io/Github-User-Viewer)
+
+---
+
 ## Features
 - Search and display GitHub user profile information (name, avatar, bio, repos, etc.)
 - Live API requests to GitHub
