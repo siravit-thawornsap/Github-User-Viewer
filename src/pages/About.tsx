@@ -14,14 +14,14 @@ export default function About() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                        <div className="md:col-span-2 p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 transition-colors duration-300">
+                        <div className="col-span-1 md:col-span-2 p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 transition-colors duration-300">
                             <h3 className="text-xl font-bold text-white mb-2">My Journey</h3>
                             <p className="text-slate-400 text-sm leading-relaxed">
                                 My journey began with game development, which led me to fall in love with Web Technologies. 
                                 I am currently studying at Thammasat University, focusing primarily on the React ecosystem.
                             </p>
                         </div>
-                        <div className="md:col-span-2 p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 transition-colors duration-300">
+                        <div className="col-span-1 md:col-span-2 p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 transition-colors duration-300">
                             <h3 className="text-xl font-bold text-white mb-4">Tech Stack</h3>
                             <div className="flex flex-wrap gap-2">
                                 {[
@@ -42,11 +42,11 @@ export default function About() {
                                 ))}
                             </div>
                         </div>
-                        <div className="md:col-span-1 p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-800">
+                        <div className="col-span-1 md:col-span-1 p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-800">
                             <div className="text-3xl font-bold text-white">Year 3</div>
                             <div className="text-sm text-slate-400">Computer Science</div>
                         </div>
-                        <div className="md:col-span-1 p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:bg-slate-800/80 transition-colors">
+                        <div className="col-span-1 md:col-span-1 p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:bg-slate-800/80 transition-colors">
                             <h4 className="font-bold text-white">Interests</h4>
                             <ul className="text-sm text-slate-400 mt-2 space-y-1">
                                 <li>• Coding</li>
@@ -54,7 +54,7 @@ export default function About() {
                                 <li>• Coffee</li>
                             </ul>
                         </div>
-                        <div className="md:col-span-2 p-6 rounded-2xl bg-indigo-600/10 border border-indigo-500/20 hover:bg-indigo-600/20 transition-colors cursor-pointer group">
+                        <div className="col-span-1 md:col-span-2 p-6 rounded-2xl bg-indigo-600/10 border border-indigo-500/20 hover:bg-indigo-600/20 transition-colors cursor-pointer group">
                             <div className="flex items-center justify-between">
                                 <div>
                                     <h3 className="text-xl font-bold text-indigo-300 group-hover:text-indigo-200">
@@ -66,8 +66,7 @@ export default function About() {
                                 </div>
                             </div>
                         </div>
-
-                        <a href="https://github.com/siravit-thawornsap" target="_blank" className="col-span-4">
+                        <a href="https://github.com/siravit-thawornsap" target="_blank" className="col-span-1 md:col-span-4">
                             <div className="flex items-center justify-center p-6 rounded-2xl bg-indigo-600/10 border border-indigo-500/20 hover:bg-indigo-600/20 transition-colors cursor-pointer">
                                 <div>
                                     <h3 className="text-xl font-bold text-indigo-300 group-hover:text-indigo-200">
