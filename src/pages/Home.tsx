@@ -29,7 +29,9 @@ export default function Home() {
 
     // try to fetch user data
     try {
-      const [u, r] = await Promise.all([fetchUser(trimmed), fetchRepos(trimmed)])
+      // const [u, r] = await Promise.all([fetchUser(trimmed), fetchRepos(trimmed)])
+      const u = await fetchUser(trimmed)
+      const r = await fetchRepos(trimmed)
       setUser(u)
       setRepos(r)
     } catch (err) {
@@ -69,6 +71,11 @@ export default function Home() {
       )}
       
       {user && <ProfileCard user={user} />}
+      {user && repos.length == 0 && 
+      <>
+        <h2 className="text-xl font-semibold mt-6 mb-2">This user does not have any Repositories!</h2>
+      </>
+      }
       {user && repos.length > 0 && (
         <>
           <h2 className="text-xl font-semibold mt-6 mb-2">Repositories</h2>
