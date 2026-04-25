@@ -80,12 +80,12 @@ export default function RepoList({ repos }: Props) {
                 <span className="bg-gray-600 px-2 py-1 rounded-xl">Star : {selectedRepo.stargazers_count}</span>
                 <span className="bg-gray-600 px-2 py-1 rounded-xl">Fork : {selectedRepo.forks_count}</span>
                 <span className="bg-gray-600 px-2 py-1 rounded-xl">Issue : {selectedRepo.open_issues_count}</span>
-                {selectedRepo.language && <span className="bg-gray-600 px-2 py-1 rounded-xl">{selectedRepo.language}</span>}
+                {selectedRepo.all_language && <span className="bg-gray-600 px-2 py-1 rounded-xl">{Object.keys(selectedRepo.all_language)}</span>}
               </div>
 
               {/* Topics */}
               {selectedRepo.topics && selectedRepo.topics.length > 0 && (
-                <div className="mt-3">
+                <div className="mt-3">1
                   <p className="text-gray-400 text-xs mb-1">Topics:</p>
                   <div className="flex flex-wrap gap-2">
                     {selectedRepo.topics.map((topic: string) => (

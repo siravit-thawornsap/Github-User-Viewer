@@ -16,6 +16,7 @@ export interface GitHubRepo {
   html_url: string
   description: string | null
   language: string | null
+  all_language: { [key: string]: number }
   stargazers_count: number
   updated_at: string
   fork: boolean
@@ -60,6 +61,7 @@ export async function fetchRepos(username: string): Promise<GitHubRepo[]> {
   )
   if (!res.ok) throw new Error(`โหลดรายการ repo ล้มเหลว (status ${res.status})`)
   const data = await res.json()
+  data.all_language = await fetch(data.languages_url).then(res => res.json()).catch(error => console.log(error))
   // return data.filter((r: GitHubRepo) => !r.fork)
   return data
 }
