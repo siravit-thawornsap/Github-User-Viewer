@@ -1,4 +1,4 @@
-# GitHub-user-profile-viewer
+# GitHub-user-profile-viewer + 
 
 A simple example project to view GitHub user profiles (built with React + Vite).
 
